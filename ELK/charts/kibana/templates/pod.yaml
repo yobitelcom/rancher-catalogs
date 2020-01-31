@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kibana
+spec:
+  serviceAccountName: elk-stack
+  containers:
+  - name: elk-stack
+    image: 354808810060.dkr.ecr.eu-central-1.amazonaws.com/elk-stack
+    env:
+    - name: AWS_ROLE_ARN
+      value: arn:aws:iam::354808810060:role/eksctl-stan-addon-iamserviceaccount-default-Role1-YT1FZOYKXPJ5
+    - name: AWS_WEB_IDENTITY_TOKEN_FILE
+      value: /var/run/secrets/eks.amazonaws.com/serviceaccount/token
+    volumeMounts:
+    - mountPath: /var/run/secrets/eks.amazonaws.com/serviceaccount
+      name: aws-iam-token
+      readOnly: true
+  volumes:
+  - name: aws-iam-token
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          audience: sts.amazonaws.com
+          expirationSeconds: 86400
+          path: token

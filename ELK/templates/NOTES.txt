@@ -1,0 +1,11 @@
+Check all the pods status by running this command:
+
+        $ kubectl get pods --namespace default
+
+Get the services by running following command:
+
+        $ kubectl get svc --namespace default
+
+To access elasticsearch : http://$ServiceIP:9200
+     
+To access kibana dashboard : http://$ServiceIP:5601

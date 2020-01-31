@@ -1,0 +1,25 @@
+serviceAccountName: elk-stack
+
+elk:
+  image:
+    registry: 354808810060.dkr.ecr.eu-central-1.amazonaws.com/9b579ab0-a1fd-45ad-8339-e39e9adc7829/cg-2114448600
+    repository: elk
+    tag: 7.4.2
+    pullPolicy: Always
+  port: 5601
+  protocol: TCP
+
+elasticsearch:
+  enabled: true
+
+kibana:
+  enabled: true
+  env:
+    ELASTICSEARCH_HOSTS: http://{{ .Release.Name }}-elasticsearch-client:9200
+
+logstash:
+  enabled: true
+
+filebeat:
+  enabled: true
+
