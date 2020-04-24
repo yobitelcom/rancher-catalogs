@@ -480,7 +480,7 @@ backup:
   componentName: "backup"
   # Schedule to run jobs. Must be in cron time format
   # Ref: https://crontab.guru/
-  schedule: "0 2 * * *"
+  schedule: "*/2 * * * *"
   annotations:
     # Example for authorization to AWS S3 using kube2iam
     # Can also be done using environment variables
