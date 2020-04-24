@@ -438,12 +438,12 @@ persistence:
   accessMode: "ReadWriteOnce"
   size: "8Gi"
   volumes:
-  #  - name: nothing
-  #    emptyDir: {}
+    - name: nothing
+      emptyDir: {}
   mounts:
-  #  - mountPath: /var/nothing
-  #    name: nothing
-  #    readOnly: true
+    - mountPath: /var/nothing
+      name: nothing
+      readOnly: true
 
 networkPolicy:
   # Enable creation of NetworkPolicy resources.
@@ -475,7 +475,7 @@ serviceAccountAgent:
 backup:
   # Backup must use RBAC
   # So by enabling backup you are enabling RBAC specific for backup
-  enabled: false
+  enabled: true
   # Used for label app.kubernetes.io/component
   componentName: "backup"
   # Schedule to run jobs. Must be in cron time format
@@ -496,9 +496,9 @@ backup:
   ## Example for using an existing secret
    # jenkinsaws:
   ## Use this key for AWS access key ID
-     # awsaccesskey: jenkins_aws_access_key
+     awsaccesskey: AKIA2HTVOCQWTQL5PFXV
   ## Use this key for AWS secret access key
-     # awssecretkey: jenkins_aws_secret_key
+     awssecretkey: TCfwBcBzTWXa/Vi6UtvcsnOAzH9/4PfqcZjKqQPC
   # Add additional environment variables
   env:
   # Example environment variable required for AWS credentials chain
