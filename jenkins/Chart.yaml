@@ -5,4 +5,4 @@ description: Open source continuous integration server. It supports multiple SCM
   projects as well as arbitrary scripts.
 home: https://jenkins.io/
 name: jenkins
-version: 2.19
+version: 2.222.1-slim
