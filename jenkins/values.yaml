@@ -492,7 +492,7 @@ backup:
   # Ref: https://github.com/maorfr/kube-tasks#simple-backup
   extraArgs: []
   # Add existingSecret for AWS credentials
-  existingSecret: {}
+  existingSecret: 
   ## Example for using an existing secret
    # jenkinsaws:
   ## Use this key for AWS access key ID
